@@ -20,8 +20,6 @@ flatten{T}(a::Array{T,1}) = any(map(x->isa(x, Array), a)) ? flatten(vcat(map(fla
 flatten{T}(a::Array{T}) = reshape(a, prod(size(a)))
 flatten(a) = a
 
-flatten_inner{T}(seq::Vector{T}) = map(flatten, seq)
-
 function tally{I<:Integer}(x::Vector{I})
     counts = zeros(I, maximum(x))
     for i in x

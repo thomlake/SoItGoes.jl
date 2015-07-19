@@ -2,7 +2,8 @@
 Random useful Julia functions.
 
 ## Functions
-`chunks{T}(a::Matrix{T}, w::Int, s::Int=1)`
+`chunks(a::Matrix{T}, w::Int, s::Int=1)`
+
 `chunks{T}(a::Vector{T}, w::Int, s::Int=1)`
 Split `a` into chunks of size `w` with step `s`. Truncates from end if neccessary.
 ```
@@ -16,3 +17,4 @@ julia> chunk(collect(1:20), 5, 3)
  [16,17,18,19,20]
 
 ```
+
