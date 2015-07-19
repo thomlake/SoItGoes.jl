@@ -1,15 +1,19 @@
 module SoItGoes
 
 export
-    slide,
+    chunk,
     flatten,
     flatten_inner,
     tally,
     countmax,
     normalize
 
-function slide{T}(seq::Matrix{T}, wstep::Int, wsize::Int)
-    Matrix{T}[seq[:,t:t + wsize - 1] for t = 1:wstep:size(seq, 2) - wsize + 1]
+function chunk{T}(a::Matrix{T}, w::Int, s::Int=1)
+    Matrix{T}[a[:,t:t + w - 1] for t = 1:s:size(a, 2) - w + 1]
+end
+
+function chunk{T}(a::Vector{T}, w:Int, s::Int=1) 
+    Vector{T}[a[t:t + w - 1] for t = 1:s:length(a) - w + 1]
 end
 
 flatten{T}(a::Array{T,1}) = any(map(x->isa(x, Array), a)) ? flatten(vcat(map(flatten, a)...)) : a
