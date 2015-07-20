@@ -12,7 +12,7 @@ function chunk{T}(a::Matrix{T}, w::Int, s::Int=1)
     Matrix{T}[a[:,t:t + w - 1] for t = 1:s:size(a, 2) - w + 1]
 end
 
-function chunk{T}(a::Vector{T}, w:Int, s::Int=1) 
+function chunk{T}(a::Vector{T}, w::Int, s::Int=1) 
     Vector{T}[a[t:t + w - 1] for t = 1:s:length(a) - w + 1]
 end
 
@@ -20,15 +20,15 @@ flatten{T}(a::Array{T,1}) = any(map(x->isa(x, Array), a)) ? flatten(vcat(map(fla
 flatten{T}(a::Array{T}) = reshape(a, prod(size(a)))
 flatten(a) = a
 
-function tally{I<:Integer}(x::Vector{I})
-    counts = zeros(I, maximum(x))
-    for i in x
+function tally{I<:Integer}(a::Array{I})
+    counts = zeros(I, maximum(a))
+    for i in a
         counts[i] += 1
     end
     counts
 end
 
-countmax{I<:Integer}(x::Vector{I}) = indmax(tally(x))
+countmax{I<:Integer}(x::Array{I}) = indmax(tally(x))
 
 normalize(x, mu, sigma) = (x .-  mu) ./ sigma
 
