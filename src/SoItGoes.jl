@@ -3,7 +3,6 @@ module SoItGoes
 export
     chunk,
     flatten,
-    flatten_inner,
     tally,
     countmax,
     normalize
