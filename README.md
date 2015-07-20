@@ -36,3 +36,11 @@ Return the most frequently occuring integer in `a`.
 
 ---
 
+###### `normalize(data, mu, sigma)`
+###### `normalize(data::Matrix, dim::Int=2)`
+###### `normalize(data::Vector{Matrix}, mu, sigma)`
+###### `normalize(data::Vector{Matrix})`
+
+Transform `data` so that it has zero mean and unit standard deviation along the given dimension
+
+---

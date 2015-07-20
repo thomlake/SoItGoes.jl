@@ -30,23 +30,23 @@ end
 
 countmax{I<:Integer}(x::Array{I}) = indmax(tally(x))
 
-normalize(x, mu, sigma) = (x .-  mu) ./ sigma
+normalize(data, mu, sigma) = (data .-  mu) ./ sigma
 
-function normalize(X::Matrix, dim::Int)
-    mu = mean(X, dim)
-    sigma = std(X, dim)
-    normalize(X, mu, sigma)
+function normalize(data::Matrix, dim::Int=2)
+    mu = mean(data, dim)
+    sigma = std(data, dim)
+    normalize(data, mu, sigma)
 end
 
-normalize(sequences::Vector{Matrix}, mu, sigma) = map(x->normalize(x, mu, sigma), sequences)
+normalize(data::Vector{Matrix}, mu, sigma) = map(x->normalize(x, mu, sigma), data)
 
-function normalize(sequences::Vector{Matrix})
-    X = hcat(sequences...)
+function normalize(data::Vector{Matrix})
+    X = hcat(data...)
     mu = mean(X, 2)
     sigma = std(X, 2)
-    normalize(sequences, mu, sigma)
+    normalize(data, mu, sigma)
 end
 
 
 
-end # module MLTools
+end # module SoItGoes
