@@ -15,6 +15,7 @@ julia> chunk(collect(1:20), 5, 3)
  [16,17,18,19,20]
 ```
 ---
+
 ###### `flatten(a::Array)`
 Flatten an array without a copy, borrowed from [this](https://groups.google.com/d/msg/julia-users/1QrIhbRA8hs/9PcNeO2N9wQJ) julia-users thread.
 ---
