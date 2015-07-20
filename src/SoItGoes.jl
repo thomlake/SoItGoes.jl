@@ -31,18 +31,18 @@ countmax{I<:Integer}(x::Array{I}) = indmax(tally(x))
 
 normalize(data, mu, sigma) = (data .-  mu) ./ sigma
 
-function normalize(data::Matrix, dim::Int=2)
+function normalize(data::Matrix, dim::Int=2, sigma_min::FloatingPoint=1e-6)
     mu = mean(data, dim)
-    sigma = std(data, dim)
+    sigma = max(std(data, dim), sigma_min)
     normalize(data, mu, sigma)
 end
 
 normalize(data::Vector{Matrix}, mu, sigma) = map(x->normalize(x, mu, sigma), data)
 
-function normalize(data::Vector{Matrix})
+function normalize(data::Vector{Matrix}, sigma_min::FloatingPoint=1e-6)
     X = hcat(data...)
     mu = mean(X, 2)
-    sigma = std(X, 2)
+    sigma = max(std(X, 2), sigma_min)
     normalize(data, mu, sigma)
 end
 
