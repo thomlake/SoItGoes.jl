@@ -2,7 +2,7 @@
 Random useful Julia functions.
 
 ## Functions
-##### `chunks(a, w, s=1)`
+`chunks(a, w, s=1)`
 
 Split a Vector or Matrix `a` into chunks of size `w` with step `s`. Truncates from end if neccessary.
 ```
@@ -15,16 +15,16 @@ julia> chunk(collect(1:20), 5, 3)
  [13,14,15,16,17]
  [16,17,18,19,20]
 ```
-
-##### `flatten(a::Array)`
+---
+`flatten(a::Array)`
 
 Flatten an array without a copy, borrowed from [this](https://groups.google.com/d/msg/julia-users/1QrIhbRA8hs/9PcNeO2N9wQJ) julia-users thread.
+---
 
-
-##### `tally{I<:Integer}(a::Array{I})`
+`tally{I<:Integer}(a::Array{I})`
 
 Return a vector `r` such that `r[i]` = # of occurences of `i` in `a`.
-
+---
 ##### `countmax{I<:Integer}(a::Array{I})`
 
 Return the most frequently occuring integer in `a`.
