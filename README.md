@@ -2,8 +2,7 @@
 Random useful Julia functions.
 
 ## Functions
-`chunks(a, w, s=1)`
-
+######`chunks(a, w, s=1)`
 Split a Vector or Matrix `a` into chunks of size `w` with step `s`. Truncates from end if neccessary.
 ```
 julia> chunk(collect(1:20), 5, 3)
